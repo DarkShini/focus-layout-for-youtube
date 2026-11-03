@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Layout for YouTube</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Focus Layout for YouTube</h1>
+    <p class="hint mode-note">Работает только в режиме «Широкий экран» YouTube (клавиша T). В обычном режиме исходный вид сохраняется.</p>
+    <form id="settings">
+      <label class="switch"><span>Включить новый layout</span><input name="enabled" type="checkbox" role="switch" checked></label>
+      <fieldset id="layout-options">
+        <legend>Страница просмотра</legend>
+        <label class="field"><span>Первый экран</span>
+          <select name="hero">
+            <option value="channel">Видео, название, канал и кнопки</option>
+            <option value="title">Только видео и название</option>
+          </select>
+        </label>
+        <p class="hint">Видимая верхняя панель учитывается в обоих режимах. Во втором режиме канал и кнопки начинаются после первого экрана.</p>
+        <label class="switch"><span>Поменять комментарии и рекомендации местами</span><input name="swap" type="checkbox" role="switch"></label>
+        <label class="field"><span>Плейлист</span>
+          <select name="playlist">
+            <option value="recommendations">Над рекомендациями</option>
+            <option value="description">Рядом с описанием</option>
+            <option value="horizontal">Горизонтально под описанием</option>
+          </select>
+        </label>
+        <p class="hint">Рядом с описанием — при ширине окна от 1100 px. В узком окне плейлист остаётся над рекомендациями.</p>
+        <p class="hint">Горизонтальная лента находится под описанием. Горизонтальный жест прокручивает ленту, вертикальный — страницу; доступна и полоса прокрутки. Текущий ролик виден при переключении.</p>
+        <p class="hint">Шириной и боковыми полями видео управляет YouTube.</p>
+        <p class="hint">Канал и описание расположены по центру страницы и сохраняют ширину основной колонки. Если плейлист рядом, описание и плейлист делят общий центрированный ряд.</p>
+        <label class="switch"><span>Скрыть верхнюю панель с поиском</span><input name="hideHeader" type="checkbox" role="switch" checked></label>
+        <details class="appearance">
+          <summary>Оформление</summary>
+          <div class="appearance-fields">
+            <label class="field"><span>Отступ над видео <output id="videoGap-value" for="videoGap">12 px</output></span>
+              <input id="videoGap" name="videoGap" type="range" aria-label="Отступ над видео" min="0" max="64" step="1" value="12">
+            </label>
+            <label class="field"><span>Отступы названия <output id="titleSpacing-value" for="titleSpacing">10 px</output></span>
+              <input id="titleSpacing" name="titleSpacing" type="range" aria-label="Отступы названия" min="0" max="40" step="1" value="10">
+            </label>
+            <p class="hint">Одинаковые отступы сверху и снизу названия.</p>
+            <label class="field"><span>Размер названия <output id="titleSize-value" for="titleSize">22 px</output></span>
+              <input id="titleSize" name="titleSize" type="range" aria-label="Размер названия" min="16" max="40" step="1" value="22">
+            </label>
+            <p class="hint">Изменения применяются после отпускания ползунка. Высота видео пересчитывается автоматически.</p>
+            <p class="hint">Если окно слишком мало для выбранных размеров, плеер сохраняет минимальную высоту, а остальное доступно при прокрутке.</p>
+            <button type="button" id="reset-appearance">Сбросить оформление</button>
+          </div>
+        </details>
+      </fieldset>
+      <p class="hint">В узком окне комментарии идут перед рекомендациями. Вертикальный плейлист следует за рекомендациями при смене сторон.</p>
+      <button type="button" id="reset">Сбросить настройки</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+  <script src="settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

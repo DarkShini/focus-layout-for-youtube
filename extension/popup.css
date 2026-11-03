@@ -1,0 +1,23 @@
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; font-size: 14px; }
+body { width: 340px; margin: 0; color: light-dark(#171717, #ededed); background: light-dark(#fff, #181818); }
+main { padding: 20px; }
+h1 { font-size: 18px; margin: 0 0 20px; font-weight: 650; }
+form { display: grid; gap: 16px; }
+fieldset { margin: 0; padding: 16px 0 0; border: 0; border-top: 1px solid light-dark(#ddd, #444); display: grid; gap: 16px; min-width: 0; }
+legend { padding: 0 4px 0 0; color: light-dark(#626262, #bcbcbc); font-size: 12px; }
+.switch { display: flex; align-items: center; justify-content: space-between; gap: 18px; line-height: 1.45; }
+input[type="checkbox"] { flex: 0 0 auto; width: 18px; height: 18px; accent-color: light-dark(#262626, #ddd); }
+.field { display: grid; gap: 8px; }
+select, button { font: inherit; border-radius: 8px; border: 1px solid light-dark(#ccc, #555); padding: 9px 10px; background: light-dark(#f7f7f7, #292929); color: inherit; }
+select { width: 100%; }
+.hint { margin: 0; font-size: 12px; line-height: 1.5; color: light-dark(#626262, #bcbcbc); }
+.mode-note { margin: -8px 0 18px; }
+button { justify-self: start; }
+button:hover { background: light-dark(#eee, #383838); }
+#status { min-height: 18px; margin: 0; font-size: 12px; }
+fieldset:disabled { opacity: .55; }
+.appearance summary { cursor: pointer; font-weight: 600; padding-block: 6px; }
+.appearance-fields { display: grid; gap: 12px; padding-top: 16px; }
+.appearance .field > span { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+output { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 12px; }
+input[type="range"] { width: 100%; margin: 0; accent-color: #777; }
