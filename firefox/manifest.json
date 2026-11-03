@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Layout for YouTube",
+  "version": "0.6.4",
+  "description": "Меняет расположение блоков страницы просмотра YouTube в широком режиме и позволяет настроить первый экран.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "Focus Layout for YouTube",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "css": [
+        "layout.css"
+      ],
+      "js": [
+        "settings.js",
+        "viewport.js",
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "focus-layout-for-youtube@extensions.local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
+}
